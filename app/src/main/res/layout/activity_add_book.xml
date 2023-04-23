@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddBookActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Add a new book"
+        android:textColor="@color/hello_tommy_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/bookTitleEt"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Book title"
+        android:padding="10dp"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/bookCategoryTv"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Category"
+        android:padding="10dp"
+        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookTitleEt" />
+
+    <EditText
+        android:id="@+id/bookAuthorEt"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Author name"
+        android:padding="10dp"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookCategoryTv" />
+
+    <EditText
+        android:id="@+id/bookDescriptionEt"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Description"
+        android:padding="10dp"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookAuthorEt" />
+
+    <ImageButton
+        android:id="@+id/bookPdfBtn"
+        android:layout_width="58dp"
+        android:layout_height="53dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_attach_file_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/uploadBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Upload"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookDescriptionEt" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

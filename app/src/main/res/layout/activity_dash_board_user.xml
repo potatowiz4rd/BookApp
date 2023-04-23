@@ -25,22 +25,6 @@
         app:menu="@menu/nav_menu"
         android:scrollIndicators="left"/>
 
-    <TextView
-        android:id="@+id/welcomeTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/subTitleTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello"
-        app:layout_constraintTop_toBottomOf="@id/welcomeTv" />
-
     <Button
         android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"

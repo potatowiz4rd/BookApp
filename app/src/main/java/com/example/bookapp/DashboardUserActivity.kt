@@ -61,11 +61,9 @@ class DashboardUserActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser == null) {
             //not logged
-            binding.subTitleTv.text = "Not Logged in"
         } else {
             //logged in
             val email = firebaseUser.email
-            binding.subTitleTv.text = email
         }
     }
 

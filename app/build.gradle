@@ -48,6 +48,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:21.2.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.6'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.5.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'

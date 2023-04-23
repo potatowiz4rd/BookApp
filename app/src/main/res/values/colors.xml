@@ -7,4 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="_bg__android___2_color">#FFFFFF</color>
+    <color name="_rectangle_17_color">#FFF8F8</color>
+    <color name="hello_tommy_color">#000000</color>
+    <color name="view_all_color">#6F6767</color>
+    <color name="rectangle_3_color">#203A60</color>
+    <color name="fantasy_color">#FFFBFB</color>
+    <color name="rectangle_4_color">#F9FBFD</color>
+    <color name="comedy_color">#121010</color>
+    <color name="rectangle_4_ek1_color">#F7FAFF</color>
+    <color name="horror_color">#141313</color>
+    <color name="j_k__rowling_color">#F47575</color>
 </resources>

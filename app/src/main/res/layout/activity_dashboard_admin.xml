@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:text="Hello" />
 
-
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
@@ -36,17 +35,19 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@color/white"
         android:drawableStart="@drawable/ic_baseline_search_24"
-        android:hint="Search"
+        android:hint=" Search"
         android:padding="10dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/categoryRv"
         android:layout_below="@+id/searchEt"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/row_category" />
 
