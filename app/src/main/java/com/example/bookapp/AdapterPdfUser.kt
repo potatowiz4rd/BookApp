@@ -1,11 +1,16 @@
 package com.example.bookapp
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.databinding.RowPdfUserBinding
+import com.github.barteksc.pdfviewer.PDFView
+import com.google.firebase.storage.FirebaseStorage
 
 class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
 
@@ -15,7 +20,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
 
     private lateinit var binding: RowPdfUserBinding
 
-    constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) {
+    constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.context = context
         this.pdfArrayList = pdfArrayList
     }
@@ -34,7 +39,18 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
         val description = model.description
         val uid = model.uid
         val url = model.url
+        //val timestamp = model.timestamp
 
+        //val date = MyApplication.formatTimeStamp(timestamp)
+        holder.title.text = title
+
+        MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, BookDetailActivity::class.java)
+            intent.putExtra("bookId", bookId)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -42,6 +58,9 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
     }
 
     inner class HolderPdfUser(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var pdfView = binding.pdfView
+        val pdfView = binding.pdfView
+        val progressBar = binding.progressBar
+        val title = binding.titleTv
     }
+
 }
