@@ -12,11 +12,6 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNav">
 
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout" />
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

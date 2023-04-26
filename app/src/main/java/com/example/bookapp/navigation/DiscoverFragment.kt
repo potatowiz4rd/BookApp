@@ -1,4 +1,4 @@
-package com.example.bookapp.menu
+package com.example.bookapp.navigation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bookapp.AdapterPdfUser
 import com.example.bookapp.ModelPdf
-import com.example.bookapp.R
 import com.example.bookapp.databinding.FragmentDiscoverBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
