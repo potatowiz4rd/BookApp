@@ -81,6 +81,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/bookTypeEt"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Book type (audio or book)"
+        android:padding="10dp"
+        android:textColorHint="#546E7A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookDescriptionEt"/>
+
+
     <Button
         android:id="@+id/uploadBtn"
         android:layout_width="wrap_content"
@@ -91,7 +105,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookDescriptionEt" />
+        app:layout_constraintTop_toBottomOf="@+id/bookTypeEt" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,7 +39,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
         val description = model.description
         val uid = model.uid
         val url = model.url
-        //val timestamp = model.timestamp
+        val timestamp = model.timestamp
 
         //val date = MyApplication.formatTimeStamp(timestamp)
         holder.title.text = title

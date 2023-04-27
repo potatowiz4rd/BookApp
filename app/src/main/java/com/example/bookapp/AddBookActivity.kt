@@ -58,6 +58,7 @@ class AddBookActivity : AppCompatActivity() {
     private var category = " "
     private var author = " "
     private var description = " "
+    private var type = " "
 
     private fun validateData() {
         Log.d(TAG, "validateData: Validating data")
@@ -66,8 +67,9 @@ class AddBookActivity : AppCompatActivity() {
         category = binding.bookCategoryTv.text.toString().trim()
         author = binding.bookAuthorEt.text.toString().trim()
         description = binding.bookDescriptionEt.text.toString().trim()
+        type = binding.bookTypeEt.text.toString().trim()
 
-        if (title.isEmpty() || category.isEmpty() || author.isEmpty() || description.isEmpty() || pdfUri == null) {
+        if (title.isEmpty() || category.isEmpty() || author.isEmpty() || description.isEmpty() || type.isEmpty() || pdfUri == null) {
             Toast.makeText(this, "Missing field value...", Toast.LENGTH_SHORT).show()
         } else {
             uploadPdfToStorage()
@@ -107,8 +109,9 @@ class AddBookActivity : AppCompatActivity() {
         hashMap["categoryId"] = "$selectedCategoryId"
         hashMap["author"] = "$author"
         hashMap["description"] = "$description"
+        hashMap["type"] = "$type"
         hashMap["url"] = "$uploadedPdfUrl"
-        hashMap["timestamp"] = "$timestamp"
+        hashMap["timestamp"] = timestamp
         hashMap["viewCount"] = 0
         hashMap["downloadsCount"] = 0
 
