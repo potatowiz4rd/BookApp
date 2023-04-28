@@ -7,12 +7,15 @@ import java.util.*
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 
 class MyApplication : Application() {
 
@@ -81,6 +84,29 @@ class MyApplication : Application() {
             }.addOnFailureListener { e ->
                 Log.d(TAG, "loadPdfSize: failed to get metadata due to ${e.message}")
             }
+        }
+
+        fun loadPdfThumbnail(
+            pdfUrl: String,
+            pdfTitle: String,
+            pdfThumbnail: String,
+            imageView: ImageView,
+            progressBar: ProgressBar
+        ) {
+            val TAG = "PDF_THUMBNAIL_TAG"
+            val ref = FirebaseDatabase.getInstance().reference
+            ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    progressBar.visibility = View.INVISIBLE
+                    Picasso.get().load(pdfThumbnail).fit()
+                        .centerCrop().into(imageView);
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d(TAG, "onCancelled: Error")
+                }
+            })
+
         }
 
         fun loadCategory(categoryId: String, categoryTv: TextView) {

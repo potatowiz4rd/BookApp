@@ -34,17 +34,16 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
     override fun onBindViewHolder(holder: HolderPdfUser, position: Int) {
         val model = pdfArrayList[position]
         val bookId = model.id
-        val categoryId = model.categoryId
         val title = model.title
-        val description = model.description
-        val uid = model.uid
         val url = model.url
-        val timestamp = model.timestamp
+        val image = model.image
 
         //val date = MyApplication.formatTimeStamp(timestamp)
-        holder.title.text = title
+        //holder.title.text = title
 
-        MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
+        //MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
+
+        MyApplication.loadPdfThumbnail(url, title, image, holder.thumbnail, holder.progressBar)
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, BookDetailActivity::class.java)
@@ -58,9 +57,9 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
     }
 
     inner class HolderPdfUser(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val pdfView = binding.pdfView
+        val thumbnail = binding.pdfThumbnail
         val progressBar = binding.progressBar
-        val title = binding.titleTv
+        //val title = binding.titleTv
     }
 
 }

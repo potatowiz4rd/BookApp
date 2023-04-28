@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,119 +7,217 @@
     android:orientation="vertical"
     tools:context=".navigation.DiscoverFragment">
 
-    <RelativeLayout
-        android:id="@+id/titleRl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/vector"
-            android:layout_width="35dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="vector"
-            android:src="@drawable/menu_burger" />
-
-        <ImageView
-            android:id="@+id/image_3"
-            android:layout_width="36dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="365dp"
-            android:layout_marginTop="8dp"
-            android:contentDescription="image_3"
-            android:src="@drawable/circle_user" />
-
-        <TextView
-            android:id="@+id/hello_tommy"
-            android:layout_width="120dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="270dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Hello user"
-            android:textColor="@color/hello_tommy_color"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/discoverTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/vector"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-condensed-light"
-            android:text="Discover New Books"
-            android:textColor="@color/hello_tommy_color"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/searchEt"
-            android:layout_width="330dp"
-            android:layout_height="48dp"
-            android:layout_below="@+id/discoverTv"
-            android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/ic_baseline_search_24"
-            android:hint=" Search"
-            android:padding="10dp"
-            android:textColorHint="#546E7A"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/discoverTv" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleRl">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/recentLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/titleRl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_3"
+                android:layout_width="36dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="365dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="image_3"
+                android:src="@drawable/circle_user" />
 
             <TextView
-                android:id="@+id/rowTv1"
-                style="@style/CardView.Dark"
-                android:layout_width="wrap_content"
+                android:id="@+id/hello_tommy"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="270dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Hello user"
+                android:textColor="@color/hello_tommy_color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/discoverTv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Recently Added"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Discover New Books"
+                android:textColor="@color/hello_tommy_color"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:src="@drawable/angle_small_right"
-                android:tint="@color/view_all_color" />
-        </LinearLayout>
+            <SearchView
+                android:id="@+id/searchEt"
+                android:layout_width="330dp"
+                android:layout_height="48dp"
+                android:layout_below="@+id/discoverTv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:padding="10dp"
+                style="@style/Widget.AppCompat.SearchView.ActionBar"
+                android:queryHint="Search"
+                android:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/discoverTv" />
 
+        </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/bookRv"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recentLayout"
-            android:background="#fefefe"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:listitem="@layout/row_pdf_user" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleRl">
 
-    </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/recentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/rowTv1"
+                    style="@style/CardView.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:padding="10dp"
+                    android:text="Recently Added"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/view_all_color"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="View all"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bookRv"
+                android:background="@color/_bg__android___2_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recentLayout"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:listitem="@layout/row_pdf_user" />
+
+            <LinearLayout
+                android:id="@+id/sellerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bookRv">
+
+                <TextView
+                    android:id="@+id/rowTv2"
+                    style="@style/CardView.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:padding="10dp"
+                    android:text="Best Sellers"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:textColor="@color/view_all_color"
+                    android:padding="10dp"
+                    android:text="View all"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bookRv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sellerLayout"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:listitem="@layout/row_pdf_user" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/audioLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bookRv2">
+
+                <TextView
+                    android:id="@+id/rowTv3"
+                    style="@style/CardView.Dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:padding="10dp"
+                    android:text="Best Audio Books"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/view_all_color"
+
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="View all"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bookRv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/audioLayout"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:listitem="@layout/row_pdf_user" />
+
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

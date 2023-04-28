@@ -31,9 +31,9 @@ class LibraryFragment : Fragment() {
 
         adapter = FragmentPageAdapter(parentFragmentManager, lifecycle)
 
-        tabLayout.addTab(tabLayout.newTab().setText("First"))
-        tabLayout.addTab(tabLayout.newTab().setText("Second"))
-        tabLayout.addTab(tabLayout.newTab().setText("Third"))
+        tabLayout.addTab(tabLayout.newTab().setText("All"))
+        tabLayout.addTab(tabLayout.newTab().setText("Favourite"))
+        tabLayout.addTab(tabLayout.newTab().setText("Saved"))
 
         viewPager2.adapter = adapter
 

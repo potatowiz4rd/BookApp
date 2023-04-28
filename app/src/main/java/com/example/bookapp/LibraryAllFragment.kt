@@ -5,10 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.bookapp.databinding.FragmentLibraryAllBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class LibraryAllFragment : Fragment() {
 
+    private lateinit var binding: FragmentLibraryAllBinding
+    private lateinit var pdfArrayList: ArrayList<ModelPdf>
+    private lateinit var adapterPdfUser: AdapterPdfUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +27,32 @@ class LibraryAllFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library_all, container, false)
+        binding = FragmentLibraryAllBinding.inflate(LayoutInflater.from(context), container, false)
+        binding.gridView.layoutManager = GridLayoutManager(context,3)
+        loadAllBooks()
+        return binding.root
+    }
+
+    private fun loadAllBooks() {
+        pdfArrayList = ArrayList()
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                pdfArrayList.clear()
+                for (ds in snapshot.children) {
+                    val model = ds.getValue(ModelPdf::class.java)
+                    pdfArrayList.add(model!!)
+                }
+                //setup adapter
+                adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
+                //set adapter to recyclerview
+                binding.gridView.adapter = adapterPdfUser
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
 

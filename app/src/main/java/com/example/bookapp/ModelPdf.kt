@@ -10,6 +10,7 @@ class ModelPdf {
     var title: String = ""
     var description: String = ""
     var type: String = ""
+    var image: String = ""
     var timestamp: Long = 0
     var viewsCount: Long = 0
     var downloadsCount: Long = 0
@@ -25,6 +26,7 @@ class ModelPdf {
         title: String,
         description: String,
         type: String,
+        image: String,
         timestamp: Long,
         viewsCount: Long,
         downloadsCount: Long
@@ -37,6 +39,7 @@ class ModelPdf {
         this.title = title
         this.description = description
         this.type = type
+        this.image = image
         this.timestamp = timestamp
         this.viewsCount = viewsCount
         this.downloadsCount = downloadsCount

@@ -17,26 +17,6 @@ class DiscoverFragment : Fragment {
 
     private lateinit var binding: FragmentDiscoverBinding
 
-    public companion object {
-        private const val TAG = "BOOKS_USER_TAG"
-
-        //receive data from activity to load books thumbnail
-        public fun newInstance(
-            categoryId: String,
-            category: String,
-            uid: String
-        ): DiscoverFragment {
-            val fragment = DiscoverFragment()
-            //put data to bundle intent
-            val args = Bundle()
-            args.putString("categoryId", categoryId)
-            args.putString("category", category)
-            args.putString("uid", uid)
-            fragment.arguments = args
-            return fragment
-        }
-    }
-
     private lateinit var pdfArrayList: ArrayList<ModelPdf>
     private lateinit var adapterPdfUser: AdapterPdfUser
 
@@ -51,6 +31,9 @@ class DiscoverFragment : Fragment {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDiscoverBinding.inflate(LayoutInflater.from(context), container, false)
+        binding.bookRv.setHasFixedSize(true);
+        binding.bookRv2.setHasFixedSize(true);
+        binding.bookRv3.setHasFixedSize(true);
         loadAllBooks()
         return binding.root
     }
@@ -69,6 +52,8 @@ class DiscoverFragment : Fragment {
                 adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
                 //set adapter to recyclerview
                 binding.bookRv.adapter = adapterPdfUser
+                binding.bookRv2.adapter = adapterPdfUser
+                binding.bookRv3.adapter = adapterPdfUser
             }
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="115dp"
+    android:layout_height="165dp"
     android:layout_margin="5dp"
-    app:cardElevation="0dp"
-    app:contentPadding="5dp">
+    app:cardElevation="0dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/pdfRl"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
+        android:elevation="20dp"
         android:layout_height="wrap_content">
 
-
-        <com.github.barteksc.pdfviewer.PDFView
-            android:id="@+id/pdfView"
+        <ImageView
+            android:id="@+id/pdfThumbnail"
             android:layout_width="100dp"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,26 +24,13 @@
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="100dp"
-            android:layout_height="140dp"
+            android:layout_height="150dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/titleTv"
-            style="@style/CardView"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:maxLines="2"
-            android:gravity="center"
-            android:layout_toEndOf="@id/pdfRl"
-            android:fontFamily="sans-serif"
-            android:text="Book Title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pdfView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.cardview.widget.CardView>
