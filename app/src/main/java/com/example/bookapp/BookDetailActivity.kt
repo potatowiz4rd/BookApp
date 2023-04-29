@@ -32,7 +32,7 @@ class BookDetailActivity : AppCompatActivity() {
 
         //handle read book
         binding.readBookBtn.setOnClickListener {
-            val intent = Intent(this,PdfViewActivity::class.java)
+            val intent = Intent(this, PdfViewActivity::class.java)
             intent.putExtra("bookId", bookId)
             startActivity(intent)
         }
@@ -48,18 +48,24 @@ class BookDetailActivity : AppCompatActivity() {
                 val title = "${snapshot.child("title").value}"
                 val url = "${snapshot.child("url").value}"
                 val uid = "${snapshot.child("uid").value}"
+                val thumbnail = "${snapshot.child("image").value}"
                 val viewCount = "${snapshot.child("viewCount").value}"
                 val downloadCount = "${snapshot.child("downloadCount").value}"
                 val description = "${snapshot.child("description").value}"
 
-                MyApplication.loadPdfFromUrlSinglePage(
+                MyApplication.loadPdfThumbnail(
                     "$url",
-                    "$title",
-                    binding.pdfView,
-                    binding.progressBar,
-                    binding.pagesTv
+                    "$title", "$thumbnail", binding.pdfView, binding.progressBar
                 )
-
+                /**
+                MyApplication.loadPdfFromUrlSinglePage(
+                "$url",
+                "$title",
+                binding.pdfView,
+                binding.progressBar,
+                binding.pagesTv
+                )
+                 **/
                 //set data
                 binding.titleTv.text = title
                 binding.descriptionTv.text = description
