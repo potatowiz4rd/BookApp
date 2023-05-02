@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
+    <color name="green">#3bb550</color>
 
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
@@ -19,7 +20,7 @@
     <color name="rectangle_3_color">#203A60</color>
     <color name="fantasy_color">#FFFBFB</color>
     <color name="rectangle_4_color">#F9FBFD</color>
-    <color name="comedy_color">#121010</color>
+    <color name="comedy_color">#1A1C32</color>
     <color name="rectangle_4_ek1_color">#F7FAFF</color>
     <color name="horror_color">#141313</color>
     <color name="j_k__rowling_color">#F47575</color>

@@ -7,6 +7,7 @@ import com.example.bookapp.databinding.ActivityDashBoardUserBinding
 import com.example.bookapp.navigation.DiscoverFragment
 import com.example.bookapp.navigation.LibraryFragment
 import com.example.bookapp.navigation.MenuFragment
+import com.example.bookapp.navigation.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardUserActivity : AppCompatActivity() {
@@ -32,6 +33,10 @@ class DashboardUserActivity : AppCompatActivity() {
                 }
                 R.id.navDiscovery -> {
                     loadFragment(DiscoverFragment())
+                    true
+                }
+                R.id.navSearch -> {
+                    loadFragment(SearchFragment())
                     true
                 }
                 R.id.navMenu -> {

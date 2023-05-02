@@ -37,13 +37,21 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
         val title = model.title
         val url = model.url
         val image = model.image
+        val audio = model.audio
 
         //val date = MyApplication.formatTimeStamp(timestamp)
         //holder.title.text = title
 
         //MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
 
-        MyApplication.loadPdfThumbnail(url, title, image, holder.thumbnail, holder.progressBar)
+        MyApplication.loadPdfThumbnail(
+            url,
+            audio,
+            title,
+            image,
+            holder.thumbnail,
+            holder.progressBar
+        )
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, BookDetailActivity::class.java)

@@ -88,6 +88,7 @@ class MyApplication : Application() {
 
         fun loadPdfThumbnail(
             pdfUrl: String,
+            audio: String,
             pdfTitle: String,
             pdfThumbnail: String,
             imageView: ImageView,

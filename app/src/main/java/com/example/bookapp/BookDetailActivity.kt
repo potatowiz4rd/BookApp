@@ -36,6 +36,13 @@ class BookDetailActivity : AppCompatActivity() {
             intent.putExtra("bookId", bookId)
             startActivity(intent)
         }
+
+        binding.listenBookBtn.setOnClickListener {
+            val intent = Intent(this, AudioBookActivity::class.java)
+            intent.putExtra("bookId", bookId)
+            startActivity(intent)
+        }
+
     }
 
     private fun loadBookDetails() {
@@ -47,6 +54,7 @@ class BookDetailActivity : AppCompatActivity() {
                 val author = "${snapshot.child("author").value}"
                 val title = "${snapshot.child("title").value}"
                 val url = "${snapshot.child("url").value}"
+                val audio = "${snapshot.child("audio").value}"
                 val uid = "${snapshot.child("uid").value}"
                 val thumbnail = "${snapshot.child("image").value}"
                 val viewCount = "${snapshot.child("viewCount").value}"
@@ -54,7 +62,7 @@ class BookDetailActivity : AppCompatActivity() {
                 val description = "${snapshot.child("description").value}"
 
                 MyApplication.loadPdfThumbnail(
-                    "$url",
+                    "$url", "$audio",
                     "$title", "$thumbnail", binding.pdfView, binding.progressBar
                 )
                 /**

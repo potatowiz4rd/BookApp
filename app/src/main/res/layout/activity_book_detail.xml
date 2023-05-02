@@ -55,11 +55,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pdfRl"
                 android:layout_centerInParent="true"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/lato_black"
                 android:gravity="center_horizontal"
                 android:hint="Book Title"
                 android:padding="5dp"
-                android:textColor="@color/comedy_color" />
+                android:textColor="@color/comedy_color"
+                android:textColorHint="@color/comedy_color" />
 
             <TextView
                 android:id="@+id/authorTv"
@@ -67,20 +68,20 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/titleTv"
                 android:layout_centerInParent="true"
-                android:fontFamily="sans-serif-light"
+                android:fontFamily="@font/lato_regular"
                 android:gravity="center_horizontal"
                 android:hint="Author name"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
                 android:textSize="15sp" />
 
             <RatingBar
                 android:id="@+id/rating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_below="@+id/authorTv"
-                android:layout_centerHorizontal="true"
                 android:numStars="5"
                 android:stepSize="0.5" />
 
@@ -97,31 +98,33 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/custom_button_fill"
-                    android:drawableStart="@drawable/book_alt"
-                    android:fontFamily="sans-serif-medium"
+                    android:drawableStart="@drawable/book"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Read"
                     android:padding="10dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/readListenBtn"
+                    android:id="@+id/listenBookBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/custom_button_no_fill"
                     android:drawableStart="@drawable/headphones"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/poppins_regular"
                     android:padding="10dp"
                     android:text="Listen"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="30dp"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
@@ -152,12 +155,11 @@
                 android:layout_below="@+id/line"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:fontFamily="sans-serif-condensed-medium"
+                android:fontFamily="@font/lato_bold"
                 android:padding="5dp"
                 android:text="Publisher Description"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/descriptionTv"
@@ -166,7 +168,7 @@
                 android:layout_below="@+id/descriptionTitleTv"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:fontFamily="sans-serif-light"
+                android:fontFamily="@font/lato_regular"
                 android:hint="Book description"
                 android:padding="5dp"
                 android:textColor="@color/black"

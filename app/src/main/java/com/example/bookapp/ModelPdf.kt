@@ -8,6 +8,7 @@ class ModelPdf {
     var categoryId: String = ""
     var url: String = ""
     var title: String = ""
+    var audio: String = ""
     var description: String = ""
     var type: String = ""
     var image: String = ""
@@ -24,6 +25,7 @@ class ModelPdf {
         categoryId: String,
         url: String,
         title: String,
+        audio: String,
         description: String,
         type: String,
         image: String,
@@ -37,6 +39,7 @@ class ModelPdf {
         this.categoryId = categoryId
         this.url = url
         this.title = title
+        this.audio = audio
         this.description = description
         this.type = type
         this.image = image
