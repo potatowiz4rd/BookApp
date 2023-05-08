@@ -1,4 +1,4 @@
-package com.example.bookapp
+package com.example.bookapp.admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

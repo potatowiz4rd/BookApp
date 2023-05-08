@@ -1,12 +1,14 @@
 package com.example.bookapp.navigation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bookapp.AdapterPdfUser
-import com.example.bookapp.ModelPdf
+import com.example.bookapp.SearchBookActivity
+import com.example.bookapp.adapter.AdapterPdfUser
+import com.example.bookapp.model.ModelPdf
 import com.example.bookapp.databinding.FragmentDiscoverBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -34,6 +36,9 @@ class DiscoverFragment : Fragment {
         binding.bookRv.setHasFixedSize(true);
         binding.bookRv2.setHasFixedSize(true);
         binding.bookRv3.setHasFixedSize(true);
+        binding.searchView.setOnClickListener() {
+            startActivity(Intent(context, SearchBookActivity::class.java))
+        }
         loadAllBooks()
         return binding.root
     }
@@ -55,6 +60,7 @@ class DiscoverFragment : Fragment {
                 binding.bookRv2.adapter = adapterPdfUser
                 binding.bookRv3.adapter = adapterPdfUser
             }
+
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }

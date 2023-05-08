@@ -1,7 +1,6 @@
-package com.example.bookapp
+package com.example.bookapp.admin
 
 import android.app.AlertDialog
-import android.app.Application
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.bookapp.model.ModelCategory
 import com.example.bookapp.databinding.ActivityAddBookBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +19,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import kotlin.math.log
 
 class AddBookActivity : AppCompatActivity() {
 

@@ -1,28 +1,34 @@
-package com.example.bookapp
+package com.example.bookapp.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookapp.BookDetailActivity
+import com.example.bookapp.FilterPdfUser
+import com.example.bookapp.model.ModelPdf
+import com.example.bookapp.MyApplication
 import com.example.bookapp.databinding.RowPdfUserBinding
-import com.github.barteksc.pdfviewer.PDFView
-import com.google.firebase.storage.FirebaseStorage
 
-class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
+class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable {
 
     private var context: Context
 
-    private var pdfArrayList: ArrayList<ModelPdf>
+    public var pdfArrayList: ArrayList<ModelPdf>
+    public var filterList: ArrayList<ModelPdf>
 
     private lateinit var binding: RowPdfUserBinding
+
+    private var filter: FilterPdfUser? = null
 
     constructor(context: Context, pdfArrayList: ArrayList<ModelPdf>) : super() {
         this.context = context
         this.pdfArrayList = pdfArrayList
+        this.filterList = pdfArrayList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderPdfUser {
@@ -36,6 +42,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
         val bookId = model.id
         val title = model.title
         val url = model.url
+        val categoryId = model.categoryId
         val image = model.image
         val audio = model.audio
 
@@ -68,6 +75,13 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser> {
         val thumbnail = binding.pdfThumbnail
         val progressBar = binding.progressBar
         //val title = binding.titleTv
+    }
+
+    override fun getFilter(): Filter {
+        if (filter == null){
+            filter = FilterPdfUser(filterList, this)
+        }
+        return filter as FilterPdfUser
     }
 
 }

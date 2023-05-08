@@ -1,4 +1,4 @@
-package com.example.bookapp
+package com.example.bookapp.model
 
 class ModelCategory {
     var id = ""

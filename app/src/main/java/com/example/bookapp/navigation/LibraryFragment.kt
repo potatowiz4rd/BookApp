@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
-import com.example.bookapp.FragmentPageAdapter
+import com.example.bookapp.adapter.FragmentPageAdapter
 import com.example.bookapp.databinding.FragmentLibraryBinding
 import com.google.android.material.tabs.TabLayout
 

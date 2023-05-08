@@ -1,4 +1,4 @@
-package com.example.bookapp
+package com.example.bookapp.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

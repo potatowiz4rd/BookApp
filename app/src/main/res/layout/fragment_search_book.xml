@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".navigation.SearchFragment">
+    tools:context=".SearchBookFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <SearchView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchResultRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/row_pdf_user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

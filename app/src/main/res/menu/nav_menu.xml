@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/navDiscovery"
-        android:icon="@drawable/navigation"
-        android:title="Discover" />
-    <item
-        android:id="@+id/navSearch"
-        android:icon="@drawable/search"
-        android:title="Search" />
+
     <item
         android:id="@+id/navLibrary"
         android:icon="@drawable/book_alt"
         android:title="Library" />
+    <item
+        android:id="@+id/navDiscovery"
+        android:icon="@drawable/navigation"
+        android:title="Discover" />
     <item
         android:id="@+id/navMenu"
         android:icon="@drawable/menu_burger"

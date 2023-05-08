@@ -40,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:layout_margin="20dp"
-
                 android:backgroundTint="@color/green"
                 android:src="@drawable/rewind"/>
 

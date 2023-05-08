@@ -17,6 +17,20 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".SearchBookActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SearchBookFragment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AudioBookActivity"
             android:exported="false">
             <meta-data
@@ -38,14 +52,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddBookActivity"
+            android:name=".admin.AddBookActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddCategoryActivity"
+            android:name=".admin.AddCategoryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -59,7 +73,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".DashboardAdminActivity"
+            android:name=".admin.DashboardAdminActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
