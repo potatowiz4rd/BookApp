@@ -42,12 +42,14 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
         val bookId = model.id
         val title = model.title
         val url = model.url
+        val author = model.author
         val categoryId = model.categoryId
         val image = model.image
         val audio = model.audio
 
         //val date = MyApplication.formatTimeStamp(timestamp)
-        //holder.title.text = title
+        holder.title.text = title
+        holder.author.text = author
 
         //MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
 
@@ -55,6 +57,7 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
             url,
             audio,
             title,
+            author,
             image,
             holder.thumbnail,
             holder.progressBar
@@ -74,11 +77,12 @@ class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filte
     inner class HolderPdfUser(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbnail = binding.pdfThumbnail
         val progressBar = binding.progressBar
-        //val title = binding.titleTv
+        val title = binding.titleTv
+        val author = binding.authorTv
     }
 
     override fun getFilter(): Filter {
-        if (filter == null){
+        if (filter == null) {
             filter = FilterPdfUser(filterList, this)
         }
         return filter as FilterPdfUser

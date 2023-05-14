@@ -6,41 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".PdfViewActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary">
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/angle_small_left" />
 
-        <TextView
-            android:id="@+id/pageNumberTv"
+        <View
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="N/N"
-            android:layout_centerVertical="true"
-            android:textSize="14sp"/>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+
+        <ImageButton
+            android:padding="10dp"
+            android:id="@+id/changeThemeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/brightness" />
+
+        <ImageButton
+            android:padding="10dp"
+            android:id="@+id/changeOrientationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/replace" />
+
+
+        <ImageButton
+            android:padding="10dp"
+            android:id="@+id/bookMarkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/bookmark" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolBar"
+        android:background="@android:color/darker_gray" />
 
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolBar"/>
+        android:layout_above="@id/toolBarBottom"
+        android:layout_below="@+id/border" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_above="@+id/toolBarBottom" />
+
+    <LinearLayout
+        android:id="@+id/toolBarBottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+
+        <SeekBar
+            android:id="@+id/pageSlider"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:thumb="@drawable/seekbar"
+            android:layout_marginStart="40dp"
+            android:progressTint="@color/colorPrimaryBlue"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <TextView
+            android:id="@+id/pageCountTv"
+            android:layout_width="70dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/default_color"
+            android:textSize="10sp" />
+    </LinearLayout>
 </RelativeLayout>

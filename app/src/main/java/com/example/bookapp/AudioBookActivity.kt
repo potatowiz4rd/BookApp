@@ -3,6 +3,7 @@ package com.example.bookapp
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bookapp.databinding.ActivityAudioBookBinding
 import com.google.firebase.database.DataSnapshot
@@ -33,16 +34,30 @@ class AudioBookActivity : AppCompatActivity() {
         binding.playBtn.setOnClickListener {
             if (mediaPlayer?.isPlaying == true) {
                 mediaPlayer?.pause()
-                binding.playBtn.setImageResource(R.drawable.play_circle)
+                binding.playBtn.setImageResource(R.drawable.play)
             } else {
                 mediaPlayer?.start()
-                binding.playBtn.setImageResource(R.drawable.ic_baseline_pause_circle_24)
+                binding.playBtn.setImageResource(R.drawable.pause)
             }
         }
 
         binding.forwardBtn.setOnClickListener {
             mediaPlayer?.seekTo(mediaPlayer?.currentPosition?.plus(5000) ?: 0)
         }
+
+        binding.seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    mediaPlayer?.seekTo(progress)
+                }
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // Do nothing
+            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // Do nothing
+            }
+        })
 
     }
 
@@ -74,6 +89,15 @@ class AudioBookActivity : AppCompatActivity() {
             prepareAsync()
             setOnPreparedListener { player ->
                 player.start()
+                binding.seekBar.max = mediaPlayer?.duration ?: 0
+                runOnUiThread(object : Runnable {
+                    override fun run() {
+                        binding.seekBar.progress = mediaPlayer?.currentPosition ?: 0
+                        if (mediaPlayer?.isPlaying == true) {
+                            binding.seekBar.postDelayed(this, 500)
+                        }
+                    }
+                })
             }
         }
     }

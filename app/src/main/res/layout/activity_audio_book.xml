@@ -7,60 +7,108 @@
     tools:context=".AudioBookActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/bookThumbnail"
-            android:layout_width="200dp"
-            android:layout_marginTop="100dp"
-            android:layout_gravity="center"
-            android:layout_height="300dp"
-            android:layout_marginBottom="100dp" />
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/angle_small_left" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+
+
+        <ImageButton
+            android:id="@+id/changeThemeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="10dp"
+            android:src="@drawable/brightness" />
+
+
+        <ImageButton
+            android:id="@+id/bookMarkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="10dp"
+            android:src="@drawable/bookmark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolBar">
+
+            <ImageView
+                android:id="@+id/bookThumbnail"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:layout_marginBottom="100dp"
+                android:src="@drawable/thumbnail"/>
 
         <SeekBar
-            android:layout_width="300dp"
             android:id="@+id/seekBar"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:progressTint="@color/colorPrimaryBlue"
+            android:thumb="@drawable/seekbar" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-            
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/rewindBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/green"
-                android:src="@drawable/rewind"/>
+                android:background="@drawable/rewind30"
+                android:backgroundTint="@color/default_color"
+                android:clickable="true" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/playBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="20dp"
-                android:backgroundTint="@color/green"
-                android:src="@drawable/play_circle"/>
+                android:clickable="true"
+                android:background="@drawable/play" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/forwardBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
                 android:layout_margin="20dp"
-
-                android:backgroundTint="@color/green"
-                android:src="@drawable/forward"/>
+                android:background="@drawable/forward30"
+                android:backgroundTint="@color/default_color"
+                android:clickable="true" />
 
 
         </LinearLayout>

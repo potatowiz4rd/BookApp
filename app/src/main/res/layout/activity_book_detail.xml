@@ -13,12 +13,12 @@
         android:background="@color/white">
 
         <RelativeLayout
-            android:padding="10dp"
-            android:clipToPadding="false"
             android:id="@+id/bookInfo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <ImageButton
                 android:id="@+id/backBtn"
@@ -34,7 +34,7 @@
                 android:layout_below="@+id/backBtn"
                 android:layout_centerHorizontal="true"
                 android:background="@color/cardview_shadow_start_color"
-                app:cardElevation="100dp">
+                app:cardElevation="20dp">
 
                 <ImageView
                     android:id="@+id/pdfView"
@@ -50,17 +50,17 @@
 
             <TextView
                 android:id="@+id/titleTv"
-                style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pdfRl"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/lato_black"
+                android:fontFamily="@font/roboto_bold"
                 android:gravity="center_horizontal"
                 android:hint="Book Title"
                 android:padding="5dp"
-                android:textColor="@color/comedy_color"
-                android:textColorHint="@color/comedy_color" />
+                android:textColor="@color/black"
+                android:textColorHint="@color/comedy_color"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/authorTv"
@@ -68,63 +68,64 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/titleTv"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/roboto_regular"
                 android:gravity="center_horizontal"
                 android:hint="Author name"
+                android:textColor="@color/default_color"
                 android:textSize="15sp" />
 
             <RatingBar
                 android:id="@+id/rating"
                 style="@style/Widget.AppCompat.RatingBar.Small"
-                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/authorTv"
+                android:layout_centerHorizontal="true"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/authorTv"
                 android:numStars="5"
                 android:stepSize="0.5" />
 
             <LinearLayout
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rating"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/readBookBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
                     android:background="@drawable/custom_button_fill"
                     android:drawableStart="@drawable/book"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Read"
+                    android:fontFamily="@font/roboto_regular"
                     android:padding="10dp"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="16sp"
+                    android:text="Read"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/listenBookBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_no_fill"
-                    android:drawableStart="@drawable/headphones"
-                    android:fontFamily="@font/poppins_regular"
-                    android:padding="10dp"
-                    android:text="Listen"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
-                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/custom_button_no_fill"
+                    android:drawableStart="@drawable/headphones"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="10dp"
+                    android:text="Listen"
                     android:textAllCaps="false"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/colorPrimaryBlue"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -155,11 +156,11 @@
                 android:layout_below="@+id/line"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
-                android:text="Publisher Description"
+                android:fontFamily="@font/roboto_regular"
+                android:text="About this audio book"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/descriptionTv"
@@ -167,16 +168,73 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/descriptionTitleTv"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/roboto_regular"
                 android:hint="Book description"
-                android:padding="5dp"
-                android:textColor="@color/black"
+                android:textColor="@color/default_color"
                 android:textSize="12sp" />
 
+            <LinearLayout
+                android:id="@+id/rateBookLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptionTv"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Rate this book"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:padding="5dp"
+                        android:text="Write your review..."
+                        android:textColor="@color/default_color"
+                        android:textSize="12sp" />
+
+                    <ImageButton
+                        android:id="@+id/reviewBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/custom_button_no_fill" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Ratings and reviews"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/commentsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_comments" />
+
+            </LinearLayout>
 
         </RelativeLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

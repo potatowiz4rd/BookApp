@@ -9,8 +9,8 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
@@ -19,13 +19,17 @@
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@drawable/menu_shape"
         android:layout_alignParentBottom="true"
+        android:elevation="0dp"
+        android:backgroundTint="@color/transparent"
         android:scrollIndicators="left"
+        app:itemIconTint="@color/nav_color"
+        app:labelVisibilityMode="selected"
+        app:itemTextColor="@color/colorPrimaryBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:itemIconTint="@color/green"
-        app:itemTextColor="@color/green"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
 

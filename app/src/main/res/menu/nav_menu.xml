@@ -3,14 +3,17 @@
 
     <item
         android:id="@+id/navLibrary"
-        android:icon="@drawable/book_alt"
+        android:icon="@drawable/library"
+        android:iconTint="@color/default_color"
         android:title="Library" />
     <item
         android:id="@+id/navDiscovery"
-        android:icon="@drawable/navigation"
+        android:icon="@drawable/home"
+        android:iconTint="@color/default_color"
         android:title="Discover" />
     <item
         android:id="@+id/navMenu"
         android:icon="@drawable/menu_burger"
+        android:iconTint="@color/default_color"
         android:title="Menu" />
 </menu>

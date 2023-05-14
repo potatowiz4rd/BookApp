@@ -26,9 +26,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchV"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/hello_tommy_color"
-        app:tabIndicatorColor="@color/view_all_color"
-        app:tabTextColor="@color/view_all_color"
+        app:tabSelectedTextColor="@color/default_color"
+        app:tabIndicatorColor="@color/default_color"
+        app:tabTextColor="@color/default_color"
         app:tabPaddingStart="-1dp"
         app:tabPaddingEnd="-1dp"/>
 

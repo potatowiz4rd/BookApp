@@ -3,19 +3,29 @@ package com.example.bookapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
+import android.widget.SeekBar
 import com.example.bookapp.databinding.ActivityPdfViewBinding
-import com.github.barteksc.pdfviewer.util.FitPolicy
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import kotlin.math.log
+import kotlin.math.abs
 
 class PdfViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfViewBinding
+    private var isNightMode = false // variable to keep track of the current mode
+    private var isSwipeVertical = true
+
+    private val setSwipeVerticalMethod by lazy {
+        binding.pdfView.javaClass.getDeclaredMethod("setSwipeVertical", Boolean::class.java)
+    }
 
     private companion object {
         const val TAG = "PDF_VIEW_TAG"
@@ -35,6 +45,34 @@ class PdfViewActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
+
+        binding.changeThemeBtn.setOnClickListener {
+            isNightMode = !isNightMode // toggle the mode
+            binding.pdfView.setNightMode(isNightMode) // apply the new mode
+        }
+
+        binding.changeOrientationBtn.setOnClickListener {
+            isSwipeVertical = !isSwipeVertical // toggle the swipe mode
+            try {
+                setSwipeVerticalMethod.isAccessible = true
+                setSwipeVerticalMethod.invoke(binding.pdfView, isSwipeVertical)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        binding.pageSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    // Update the current page of the PDFView when the user slides the thumb
+                    binding.pdfView.jumpTo(progress)
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
     }
 
     private fun loadBookDetails() {
@@ -62,11 +100,13 @@ class PdfViewActivity : AppCompatActivity() {
         reference.getBytes(Constants.MAX_BYTES_PDF).addOnSuccessListener { bytes ->
             Log.d(TAG, "loadBookFromUrl: got pdf from urf!")
             binding.pdfView.fromBytes(bytes).swipeHorizontal(true).pageSnap(true).pageFling(true)
-                .nightMode(true)
+                .enableAnnotationRendering(true)
+                .nightMode(false)
                 .onPageChange { page, pageCount ->
                     //set current page and total page
+                    binding.pageSlider.max = pageCount - 1
                     val currentPage = page + 1
-                    binding.pageNumberTv.text = "$currentPage/$pageCount"
+                    binding.pageCountTv.text = "$currentPage/$pageCount"
                 }.onError { t ->
                     Log.d(TAG, "loadBookFromUrl: ${t.message}")
                 }.onPageError { page, t ->

@@ -31,7 +31,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/circle_user" />
+                android:src="@drawable/circle_user"
+                app:tint="@color/default_color" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                 android:fontFamily="@font/lato_bold"
                 android:padding="5dp"
                 android:text="Profile"
-                android:textColor="@color/black" />
+                android:textColor="@color/default_color" />
 
         </LinearLayout>
 
@@ -62,7 +63,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/settings" />
+                android:src="@drawable/settings"
+                app:tint="@color/default_color" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,7 +73,7 @@
                 android:fontFamily="@font/lato_bold"
                 android:padding="5dp"
                 android:text="Settings"
-                android:textColor="@color/black" />
+                android:textColor="@color/default_color" />
 
         </LinearLayout>
 
@@ -92,6 +94,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
+                app:tint="@color/default_color"
                 android:src="@drawable/globe" />
 
             <TextView
@@ -101,7 +104,7 @@
                 android:fontFamily="@font/lato_bold"
                 android:padding="5dp"
                 android:text="Language: English"
-                android:textColor="@color/black" />
+                android:textColor="@color/default_color" />
 
         </LinearLayout>
 
@@ -122,6 +125,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
+                app:tint="@color/default_color"
                 android:src="@drawable/info" />
 
             <TextView
@@ -131,7 +135,7 @@
                 android:fontFamily="@font/lato_bold"
                 android:padding="5dp"
                 android:text="Info"
-                android:textColor="@color/black" />
+                android:textColor="@color/default_color" />
 
         </LinearLayout>
 

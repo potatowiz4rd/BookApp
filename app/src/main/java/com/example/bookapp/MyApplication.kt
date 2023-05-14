@@ -90,6 +90,7 @@ class MyApplication : Application() {
             pdfUrl: String,
             audio: String,
             pdfTitle: String,
+            pdfAuthor: String,
             pdfThumbnail: String,
             imageView: ImageView,
             progressBar: ProgressBar

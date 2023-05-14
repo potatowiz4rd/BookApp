@@ -30,7 +30,7 @@ class LibraryAllFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLibraryAllBinding.inflate(LayoutInflater.from(context), container, false)
-        binding.gridView.layoutManager = GridLayoutManager(context,3)
+        binding.gridView.layoutManager = GridLayoutManager(context,2)
         loadAllBooks()
         return binding.root
     }
