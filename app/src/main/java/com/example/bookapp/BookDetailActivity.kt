@@ -5,6 +5,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.example.bookapp.adapter.AdapterComment
@@ -25,6 +26,7 @@ class BookDetailActivity : AppCompatActivity() {
     private lateinit var commentArrayList: ArrayList<ModelComment>
     private lateinit var adapterComment: AdapterComment
     private var bookId = ""
+    private var isFavourite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,9 @@ class BookDetailActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        if (firebaseAuth.currentUser != null) {
+            checkFavourite()
+        }
 
         loadBookDetails()
         showComments()
@@ -65,10 +70,72 @@ class BookDetailActivity : AppCompatActivity() {
         binding.reviewBtn.setOnClickListener {
             if (firebaseAuth.currentUser == null) {
                 Toast.makeText(this, "You're not logged in", Toast.LENGTH_SHORT).show()
-            } else {
+            }
+            else {
                 addCommentDialog()
             }
         }
+
+        binding.addFavouriteBtn.setOnClickListener {
+            if (firebaseAuth.currentUser == null) {
+                Toast.makeText(this, "You're not logged in", Toast.LENGTH_SHORT).show()
+            } else {
+                if (isFavourite) {
+                    removeFavourite()
+                }
+                else {
+                    addFavorite()
+                }
+            }
+        }
+    }
+
+    private fun addFavorite() {
+        val timestamp = System.currentTimeMillis()
+
+        val hashMap = HashMap<String, Any>()
+        hashMap["bookId"] = bookId
+        hashMap["timestamp"] = timestamp
+
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!).child("Favourites").child(bookId)
+            .setValue(hashMap).addOnSuccessListener {
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+
+    private fun removeFavourite() {
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!).child("Favourites").child(bookId)
+            .removeValue().addOnSuccessListener {
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Failed due to${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun checkFavourite() {
+        val ref = FirebaseDatabase.getInstance().getReference("Users")
+        ref.child(firebaseAuth.uid!!).child("Favourites").child(bookId)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    isFavourite = snapshot.exists()
+                    if (isFavourite) {
+                        //available in fav
+                        binding.addFavouriteBtn.text = "Remove Favourite"
+                    } else {
+                        //not available in fav
+                        binding.addFavouriteBtn.text = "Add Favourite"
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
 
     private fun showComments() {
@@ -77,16 +144,17 @@ class BookDetailActivity : AppCompatActivity() {
 
         //db path to comments
         val ref = FirebaseDatabase.getInstance().getReference("Books")
-        ref.child(bookId).child("Comments").addValueEventListener(object : ValueEventListener{
+        ref.child(bookId).child("Comments").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 commentArrayList.clear()
-                for (ds in snapshot.children){
+                for (ds in snapshot.children) {
                     val model = ds.getValue(ModelComment::class.java)
                     commentArrayList.add(model!!)
                 }
                 adapterComment = AdapterComment(this@BookDetailActivity, commentArrayList)
                 binding.commentsRv.adapter = adapterComment
             }
+
             //setup adapter
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")

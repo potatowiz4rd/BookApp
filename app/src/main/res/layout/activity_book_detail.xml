@@ -103,7 +103,6 @@
                     android:background="@drawable/custom_button_fill"
                     android:drawableStart="@drawable/book"
                     android:fontFamily="@font/roboto_regular"
-                    android:padding="10dp"
                     android:text="Read"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
@@ -120,12 +119,26 @@
                     android:background="@drawable/custom_button_no_fill"
                     android:drawableStart="@drawable/headphones"
                     android:fontFamily="@font/roboto_regular"
-                    android:padding="10dp"
                     android:text="Listen"
                     android:textAllCaps="false"
                     android:textColor="@color/colorPrimaryBlue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addFavouriteBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_no_fill"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Add Favourite"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimaryBlue"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
 
