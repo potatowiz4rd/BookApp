@@ -3,6 +3,8 @@ package com.example.bookapp
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bookapp.databinding.ActivityAudioBookBinding
@@ -16,6 +18,7 @@ import com.google.firebase.storage.FirebaseStorage
 class AudioBookActivity : AppCompatActivity() {
 
     private var mediaPlayer: MediaPlayer? = null
+    private val handler = Handler(Looper.getMainLooper())
     var bookId = ""
     private lateinit var binding: ActivityAudioBookBinding
 
@@ -45,15 +48,17 @@ class AudioBookActivity : AppCompatActivity() {
             mediaPlayer?.seekTo(mediaPlayer?.currentPosition?.plus(5000) ?: 0)
         }
 
-        binding.seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     mediaPlayer?.seekTo(progress)
                 }
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
                 // Do nothing
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 // Do nothing
             }
@@ -77,6 +82,16 @@ class AudioBookActivity : AppCompatActivity() {
         })
     }
 
+    private fun setDurationText(duration: Int) {
+        binding.durationTv.text = formatTime(duration)
+    }
+
+    private fun formatTime(timeMs: Int): String {
+        val minutes = timeMs / 1000 / 60
+        val seconds = timeMs / 1000 % 60
+        return String.format("%02d:%02d", minutes, seconds)
+    }
+
     private fun loadAudioFromUrl(audioUrl: String) {
         mediaPlayer = MediaPlayer().apply {
             setAudioAttributes(
@@ -90,16 +105,35 @@ class AudioBookActivity : AppCompatActivity() {
             setOnPreparedListener { player ->
                 player.start()
                 binding.seekBar.max = mediaPlayer?.duration ?: 0
-                runOnUiThread(object : Runnable {
+                setDurationText(mediaPlayer?.duration ?: 0)
+                handler.postDelayed(object : Runnable {
                     override fun run() {
                         binding.seekBar.progress = mediaPlayer?.currentPosition ?: 0
-                        if (mediaPlayer?.isPlaying == true) {
-                            binding.seekBar.postDelayed(this, 500)
-                        }
+                        binding.currentTv.text = formatTime(mediaPlayer?.currentPosition ?: 0)
+                        handler.postDelayed(this, 1000)
                     }
-                })
+                }, 1000)
             }
         }
+
+        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    mediaPlayer?.seekTo(progress)
+                    binding.currentTv.text = formatTime(progress)
+                } else {
+                    binding.currentTv.text = formatTime(mediaPlayer?.currentPosition ?: 0)
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                // Do nothing
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                // Do nothing
+            }
+        })
     }
 
     override fun onDestroy() {
