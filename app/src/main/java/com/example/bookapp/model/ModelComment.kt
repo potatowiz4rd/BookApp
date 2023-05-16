@@ -17,6 +17,4 @@ class ModelComment {
         this.comment = comment
         this.uid = uid
     }
-
-
 }

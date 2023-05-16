@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.bookapp.adapter.AdapterComment
 import com.example.bookapp.databinding.ActivityBookDetailBinding
 import com.example.bookapp.databinding.DialogAddCommentBinding
@@ -123,17 +124,25 @@ class BookDetailActivity : AppCompatActivity() {
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     isFavourite = snapshot.exists()
+                    val filledFavourite = ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.favourite_filled
+                    )
+                    val unfilledFavourite = ContextCompat.getDrawable(
+                        applicationContext,
+                        R.drawable.favourite
+                    )
                     if (isFavourite) {
                         //available in fav
-                        binding.addFavouriteBtn.text = "Remove Favourite"
+                        binding.addFavouriteBtn.setImageDrawable(filledFavourite)
                     } else {
                         //not available in fav
-                        binding.addFavouriteBtn.text = "Add Favourite"
+                        binding.addFavouriteBtn.setImageDrawable(unfilledFavourite)
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    // Handle the error
                 }
             })
     }

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.bookapp.adapter.AdapterPdfSearch
 import com.example.bookapp.adapter.AdapterPdfUser
 import com.example.bookapp.databinding.FragmentSearchBookBinding
 import com.example.bookapp.model.ModelPdf
@@ -46,7 +47,7 @@ class SearchBookFragment : Fragment {
 
     //arraylist to hold pdf
     private lateinit var pdfArrayList: ArrayList<ModelPdf>
-    private lateinit var adapterPdfUser: AdapterPdfUser
+    private lateinit var adapterPdfSearch: AdapterPdfSearch
 
     constructor()
 
@@ -94,7 +95,7 @@ class SearchBookFragment : Fragment {
 
 
     fun search(query: String?) {
-        adapterPdfUser.filter.filter(query)
+        adapterPdfSearch.filter.filter(query)
     }
 
     private fun loadAllBooks() {
@@ -109,9 +110,9 @@ class SearchBookFragment : Fragment {
                     pdfArrayList.add(model!!)
                 }
                 //setup adapter
-                adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
+                adapterPdfSearch = AdapterPdfSearch(context!!, pdfArrayList)
                 //set adapter to recyclerview
-                binding.searchResultRv.adapter = adapterPdfUser
+                binding.searchResultRv.adapter = adapterPdfSearch
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -133,9 +134,9 @@ class SearchBookFragment : Fragment {
                         pdfArrayList.add(model!!)
                     }
                     //setup adapter
-                    adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
+                    adapterPdfSearch = AdapterPdfSearch(context!!, pdfArrayList)
                     //set adapter to recyclerview
-                    binding.searchResultRv.adapter = adapterPdfUser
+                    binding.searchResultRv.adapter = adapterPdfSearch
                 }
 
                 override fun onCancelled(error: DatabaseError) {

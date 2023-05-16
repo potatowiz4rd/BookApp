@@ -20,21 +20,43 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <ImageButton
-                android:id="@+id/backBtn"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/angle_small_left" />
+                android:layout_marginBottom="10dp"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/arrow_back"
+                    android:backgroundTint="@color/default_color" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/addFavouriteBtn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/favourite"
+                    android:backgroundTint="@color/default_color" />
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/pdfRl"
-                android:layout_width="200dp"
-                android:layout_height="300dp"
-                android:layout_below="@+id/backBtn"
+                android:layout_width="165dp"
+                android:layout_height="250dp"
+                android:layout_below="@+id/toolBar"
                 android:layout_centerHorizontal="true"
                 android:background="@color/cardview_shadow_start_color"
-                app:cardElevation="20dp">
+                app:cardElevation="10dp">
 
                 <ImageView
                     android:id="@+id/pdfView"
@@ -82,11 +104,14 @@
                 android:layout_below="@+id/authorTv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:numStars="5"
+                android:progressTint="@color/colorPrimaryBlue"
+                android:rating="3"
                 android:stepSize="0.5" />
 
             <LinearLayout
+                android:id="@+id/startBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rating"
@@ -98,53 +123,34 @@
                     android:id="@+id/readBookBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_fill"
-                    android:drawableStart="@drawable/book"
-                    android:fontFamily="@font/roboto_regular"
+                    android:drawablePadding="-20dp"
+                    android:drawableTint="@color/white"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="Read"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/listenBookBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_no_fill"
-                    android:drawableStart="@drawable/headphones"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="Listen"
                     android:textAllCaps="false"
                     android:textColor="@color/colorPrimaryBlue"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/addFavouriteBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/custom_button_no_fill"
-                    android:fontFamily="@font/roboto_regular"
-                    android:text="Add Favourite"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorPrimaryBlue"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
-
         </RelativeLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -156,9 +162,7 @@
                 android:id="@+id/line"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
                 android:layout_marginBottom="10dp"
                 android:background="?android:attr/listDivider" />
 
@@ -209,13 +213,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
                     android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:text="Write your review..."
                         android:textColor="@color/default_color"
                         android:textSize="12sp" />

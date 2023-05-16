@@ -6,178 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".navigation.MenuFragment">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:id="@+id/profileLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/circle_user"
+            app:shapeAppearanceOverlay="@style/styleCircleImage"
+            app:strokeWidth="1dp" />
 
-        <LinearLayout
-            android:id="@+id/menuProfile"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/profileIv"
+            android:layout_marginTop="20dp"
+            android:text="Person Name"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/circle_user"
-                app:tint="@color/default_color" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
-                android:text="Profile"
-                android:textColor="@color/default_color" />
-
-        </LinearLayout>
-
-        <View
+        <TextView
+            android:id="@+id/emailTv"
             android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/menuProfile"
-            android:background="?android:attr/listDivider" />
-
-        <LinearLayout
-            android:id="@+id/menuSettings"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/menuProfile"
-            android:padding="10dp">
-
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/settings"
-                app:tint="@color/default_color" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
-                android:text="Settings"
-                android:textColor="@color/default_color" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/menuSettings"
-            android:background="?android:attr/listDivider" />
-
-        <LinearLayout
-            android:id="@+id/menuLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/menuSettings"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                app:tint="@color/default_color"
-                android:src="@drawable/globe" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
-                android:text="Language: English"
-                android:textColor="@color/default_color" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/menuLanguage"
-            android:background="?android:attr/listDivider" />
-
-        <LinearLayout
-            android:id="@+id/menuInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/menuLanguage"
-            android:padding="10dp">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                app:tint="@color/default_color"
-                android:src="@drawable/info" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
-                android:text="Info"
-                android:textColor="@color/default_color" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/menuInfo"
-            android:background="?android:attr/listDivider" />
-
-        <LinearLayout
-            android:id="@+id/logoutBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/menuInfo"
-            android:padding="10dp">
-
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/power" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/lato_bold"
-                android:padding="5dp"
-                android:text="Log out"
-                android:textColor="@color/j_k__rowling_color" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/menuProfile"
-            android:background="?android:attr/listDivider" />
-
+            android:layout_below="@+id/nameTv"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/profileIv"
+            android:text="Email"
+            android:textColor="@color/default_color"
+            android:textSize="15sp" />
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/profileLayout">
+
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/power" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="5dp"
+            android:text="Log out"
+            android:textColor="@color/j_k__rowling_color" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,24 +22,33 @@
             <LinearLayout
                 android:id="@+id/titleLayout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
-
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginStart="25dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Hello, Cuong"
+                    android:text="Hello, User"
+                    android:id="@+id/greetingTv"
                     android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileIv"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/circle_user"/>
 
             </LinearLayout>
 
@@ -49,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/titleLayout"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp">
@@ -93,18 +102,18 @@
                 android:layout_below="@+id/searchView"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"
-                android:padding="8dp"
                 android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/selected_tab_background"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center_horizontal"
                     android:text="Explore"
-                    android:background="@drawable/selected_tab_background"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
@@ -129,39 +138,24 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@+id/discoverTab"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="15dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
                 app:cardUseCompatPadding="true">
 
-                <FrameLayout
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/imageSlider"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-
-                        android:id="@+id/bannerIv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:fontFamily="@font/lato_black"
-                        android:maxLines="1"
-                        android:text="Discover new books"
-                        android:textColor="@color/white"
-                        android:textSize="30sp" />
-
-                </FrameLayout>
+                    android:layout_height="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="20"
+                    app:iss_delay="1000"
+                    app:iss_period="1000" />
 
             </androidx.cardview.widget.CardView>
 
@@ -204,15 +198,14 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1" />
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/seeAll1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="See all"
-                        android:textSize="13sp" />
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/arrow_forward"
+                        app:tint="@color/colorPrimaryBlue" />
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView

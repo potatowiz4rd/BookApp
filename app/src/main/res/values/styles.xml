@@ -15,4 +15,18 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="SearchTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/search_bg_stroke</item>
+        <item name="hintTextAppearance">@style/SearchHintTextAppearance</item>
+    </style>
+
+    <style name="SearchHintTextAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/search_hint</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
 </resources>

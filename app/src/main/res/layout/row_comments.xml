@@ -6,17 +6,18 @@
     android:layout_marginBottom="1dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="5dp"
-    app:cardElevation="0dp"
-    app:contentPadding="8dp">
+    app:cardElevation="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profileIV"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerCrop"
             android:src="@drawable/circle_user"
             app:shapeAppearanceOverlay="@style/styleCircleImage"
@@ -26,11 +27,24 @@
             android:id="@+id/nameTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/dateTv"
+            android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/profileIV"
             android:text="Person Name"
             android:textColor="@color/black"
             android:textSize="16sp" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameTv"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="80dp"
+            android:layout_toEndOf="@id/profileIV"
+            android:numStars="5"
+            android:progressTint="@color/colorPrimaryBlue"
+            android:rating="3" />
 
         <TextView
             android:id="@+id/dateTv"
@@ -46,8 +60,9 @@
             android:id="@+id/commentTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nameTv"
-            android:layout_marginTop="5dp"
+            android:layout_below="@+id/ratingBar"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
             android:layout_toEndOf="@id/profileIV"
             android:text="User comment"
             android:textColor="@color/default_color"

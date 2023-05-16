@@ -29,6 +29,11 @@ class AudioBookActivity : AppCompatActivity() {
 
         bookId = intent.getStringExtra("bookId")!!
         loadAudio()
+        loadBookDetails()
+
+        binding.backBtn.setOnClickListener{
+            onBackPressed()
+        }
 
         binding.rewindBtn.setOnClickListener {
             mediaPlayer?.seekTo(mediaPlayer?.currentPosition?.minus(5000) ?: 0)
@@ -64,6 +69,42 @@ class AudioBookActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    private fun loadBookDetails() {
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //get data
+                val author = "${snapshot.child("author").value}"
+                val title = "${snapshot.child("title").value}"
+                val url = "${snapshot.child("url").value}"
+                val audio = "${snapshot.child("audio").value}"
+                val uid = "${snapshot.child("uid").value}"
+                val thumbnail = "${snapshot.child("image").value}"
+
+                MyApplication.loadPdfThumbnail(
+                    "$url", "$audio",
+                    "$title", "$author", "$thumbnail", binding.bookThumbnail, binding.progressBar
+                )
+                /**
+                MyApplication.loadPdfFromUrlSinglePage(
+                "$url",
+                "$title",
+                binding.pdfView,
+                binding.progressBar,
+                binding.pagesTv
+                )
+                 **/
+                //set data
+                binding.titleTv.text = title
+                binding.authorTv.text = author
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun loadAudio() {

@@ -16,37 +16,11 @@
 
         <ImageView
             android:id="@+id/welcomeImg"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:src="@drawable/welcome2" />
-
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/welcomeImg"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="@font/lato_bold"
-            android:text="Reading to success"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv2"
-            style="@style/TextAppearance.AppCompat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv1"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/lato_italic"
-            android:padding="10dp"
-            android:text="A library of bite-sized business eBooks on soft skils and access to 30+ millions books in various
-languages with an easy and simple monthly subscription and read anywhere, any devices."
-            android:textSize="14sp" />
+            android:src="@drawable/logo" />
 
     </RelativeLayout>
 

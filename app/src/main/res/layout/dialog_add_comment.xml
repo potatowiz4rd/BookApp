@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog">
 
     <LinearLayout
         android:id="@+id/cancelPostLayout"
@@ -15,9 +16,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto_regular"
-            android:padding="10dp"
             android:text="Cancel"
+
             android:textColor="@color/colorPrimaryBlue"
             android:textSize="15sp" />
 
@@ -26,36 +30,42 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-
         <TextView
             android:id="@+id/postTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/roboto_medium"
-            android:padding="10dp"
             android:text="Post"
             android:textColor="@color/colorPrimaryBlue"
             android:textSize="16sp" />
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/cancelPostLayout"
+        android:background="?android:attr/listDivider" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/commentTil"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@+id/cancelPostLayout"
-        android:hint="Write your comment...."
-        android:padding="10dp"
-        android:textColorHint="@color/default_color">
+        android:layout_below="@+id/line"
+        android:textColorHint="@color/default_color"
+        app:boxBackgroundMode="none">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/commentEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:hint="Write your comment...."
             android:inputType="textMultiLine|textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
 

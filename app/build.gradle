@@ -53,10 +53,13 @@ dependencies {
 
     implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
     implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
 
     //implementation 'com.pspdfkit:pspdfkit:8.7.1'
 

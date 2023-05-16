@@ -37,4 +37,7 @@
     <color name="search_color">#80FFFFFF</color>
     <color name="default_color">#616468</color>
 
+    <color name="search_hint">#8E8E93</color>
+    <color name="search_bg_stroke">#E5E5E5</color>
+
 </resources>
