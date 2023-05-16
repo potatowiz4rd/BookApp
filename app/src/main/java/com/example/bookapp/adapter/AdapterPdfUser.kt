@@ -9,7 +9,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.BookDetailActivity
-import com.example.bookapp.FilterPdfUser
+import com.example.bookapp.filter.FilterPdfUser
 import com.example.bookapp.model.ModelPdf
 import com.example.bookapp.MyApplication
 import com.example.bookapp.databinding.RowPdfUserBinding

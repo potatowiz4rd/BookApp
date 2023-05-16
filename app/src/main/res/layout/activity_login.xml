@@ -6,12 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <RelativeLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/welcomeImg"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/logo" />
+
+    </RelativeLayout>
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="255dp"
+        android:layout_marginTop="270dp"
         android:layout_marginEnd="30dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,18 +39,25 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailTil"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="none"
                 app:hintEnabled="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_button_no_fill"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
                     android:hint="Email"
+                    android:padding="10dp"
                     app:layout_constraintHorizontal_bias="0.0" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -40,29 +65,44 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordTil"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
                 app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="none"
                 app:hintEnabled="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/emailTil"
                 app:passwordToggleEnabled="true">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/passwordEt"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_button_no_fill"
+                    android:drawableStart="@drawable/password"
+                    android:drawablePadding="10dp"
+                    android:padding="10dp"
+                    android:fontFamily="@font/roboto_regular"
                     android:hint="Password" />
 
-                <Button
-                    android:id="@+id/loginBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Login" />
-
-
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button_fill"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTil" />
+
 
             <TextView
                 android:id="@+id/forgotPasswordTv"
@@ -71,7 +111,7 @@
                 android:padding="10dp"
                 android:text="Forgot your password?"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/passwordTil" />
+                app:layout_constraintTop_toBottomOf="@id/loginBtn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -81,8 +121,10 @@
         android:id="@+id/noAccountTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
         android:padding="10dp"
         android:text="@string/new_user_signup"
+        android:textColor="@color/colorPrimaryBlue"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

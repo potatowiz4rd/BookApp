@@ -24,6 +24,5 @@ class MainActivity : AppCompatActivity() {
         binding.skipBtn.setOnClickListener() {
             startActivity(Intent(this, DashboardUserActivity::class.java))
         }
-
     }
 }

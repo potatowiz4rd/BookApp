@@ -6,12 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <RelativeLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/welcomeImg"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/logo" />
+    </RelativeLayout>
+
     <ImageButton
         android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:layout_width="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="24dp"
+        android:backgroundTint="@color/default_color"
+        android:background="@drawable/arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageButton>
 
@@ -40,6 +59,7 @@
                     android:id="@+id/nameEdt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
                     android:hint="Enter your name"
                     app:layout_constraintHorizontal_bias="0.0" />
 
@@ -59,6 +79,8 @@
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="10dp"
                     android:hint="Enter your email" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -77,6 +99,8 @@
                 <EditText
                     android:id="@+id/passwordEt"
                     android:layout_width="match_parent"
+                    android:drawableStart="@drawable/password"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:hint="Enter your password" />
 
@@ -96,16 +120,23 @@
                 <EditText
                     android:id="@+id/passwordConfirmEt"
                     android:layout_width="match_parent"
+                    android:drawableStart="@drawable/password"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:hint="Confirm your password" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/registerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_medium"
+                android:background="@drawable/custom_button_fill"
+                android:layout_marginTop="20dp"
                 android:text="Register"
+                android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/passwordConfirmTil" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

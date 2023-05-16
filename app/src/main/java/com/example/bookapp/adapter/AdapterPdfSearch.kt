@@ -9,11 +9,9 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.BookDetailActivity
-import com.example.bookapp.FilterPdfSearch
-import com.example.bookapp.FilterPdfUser
+import com.example.bookapp.filter.FilterPdfSearch
 import com.example.bookapp.MyApplication
 import com.example.bookapp.databinding.RowPdfSearchBinding
-import com.example.bookapp.databinding.RowPdfUserBinding
 import com.example.bookapp.model.ModelPdf
 
 class AdapterPdfSearch : RecyclerView.Adapter<AdapterPdfSearch.HolderPdfSearch>, Filterable {
