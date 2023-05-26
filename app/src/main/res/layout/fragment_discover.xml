@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp">
 
         <RelativeLayout
             android:id="@+id/titleRl"
@@ -27,13 +28,13 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/greetingTv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="25dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Hello, User"
-                    android:id="@+id/greetingTv"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -48,7 +49,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="20dp"
-                    android:src="@drawable/circle_user"/>
+                    android:src="@drawable/circle_user" />
 
             </LinearLayout>
 
@@ -219,26 +220,33 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     tools:listitem="@layout/row_pdf_user" />
-
             </RelativeLayout>
 
+            <View
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_below="@+id/recentRl"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="?android:attr/listDivider" />
 
             <LinearLayout
                 android:id="@+id/sellerLayout"
+                android:layout_below="@+id/recentRl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/recentRl">
+                android:layout_height="60dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/rowTv2"
-                    style="@style/CardView.Dark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:padding="10dp"
-                    android:text="Best Sellers"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Best sellers"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <View
@@ -253,53 +261,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sellerLayout"
-                android:layout_marginStart="15dp"
                 android:nestedScrollingEnabled="false"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginBottom="70dp"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:listitem="@layout/row_pdf_user" />
-
-
-            <LinearLayout
-                android:id="@+id/audioLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/bookRv2">
-
-                <TextView
-                    android:id="@+id/rowTv3"
-                    style="@style/CardView.Dark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:padding="10dp"
-                    android:text="Best Audio Books"
-                    android:textSize="20sp" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/bookRv3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/audioLayout"
-                android:layout_marginStart="15dp"
-                android:nestedScrollingEnabled="false"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:listitem="@layout/row_pdf_user" />
-
-
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

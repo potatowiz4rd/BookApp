@@ -89,14 +89,14 @@
             android:layout_height="8dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:progress="80"
+            android:progress="10"
             android:progressDrawable="@drawable/custom_progress_bar" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="80%"
+            android:text="10%"
             android:layout_marginStart="20dp"
             android:textColor="@color/default_color"/>
     </LinearLayout>

@@ -76,7 +76,6 @@ class DiscoverFragment : Fragment {
 
         binding.bookRv.setHasFixedSize(true);
         binding.bookRv2.setHasFixedSize(true);
-        binding.bookRv3.setHasFixedSize(true);
         binding.searchView.setOnClickListener() {
             startActivity(Intent(context, SearchBookActivity::class.java))
         }
@@ -99,7 +98,6 @@ class DiscoverFragment : Fragment {
                 //set adapter to recyclerview
                 binding.bookRv.adapter = adapterPdfUser
                 binding.bookRv2.adapter = adapterPdfUser
-                binding.bookRv3.adapter = adapterPdfUser
             }
 
             override fun onCancelled(error: DatabaseError) {

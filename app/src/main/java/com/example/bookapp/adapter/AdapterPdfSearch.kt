@@ -9,10 +9,12 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.BookDetailActivity
-import com.example.bookapp.filter.FilterPdfSearch
 import com.example.bookapp.MyApplication
 import com.example.bookapp.databinding.RowPdfSearchBinding
+import com.example.bookapp.filter.FilterPdfSearch
 import com.example.bookapp.model.ModelPdf
+import java.util.Random
+
 
 class AdapterPdfSearch : RecyclerView.Adapter<AdapterPdfSearch.HolderPdfSearch>, Filterable {
 
@@ -46,12 +48,27 @@ class AdapterPdfSearch : RecyclerView.Adapter<AdapterPdfSearch.HolderPdfSearch>,
         val categoryId = model.categoryId
         val image = model.image
         val audio = model.audio
+        val numstar = model.numstar
+
 
         //val date = MyApplication.formatTimeStamp(timestamp)
         holder.title.text = title
         holder.author.text = author
+        val ratingBar = holder.ratingBar
+
+// Generate a random float between 0 and 5
+
+// Generate a random float between 0 and 5
+        val randomRating: Float = Random().nextFloat() * 5
+
+// Set the RatingBar rating to the random value
+
+// Set the RatingBar rating to the random value
+        ratingBar.rating = randomRating
 
         //MyApplication.loadPdfFromUrlSinglePage(url, title, holder.pdfView, holder.progressBar, null)
+
+        MyApplication.loadCategory(categoryId, holder.category)
 
         MyApplication.loadPdfThumbnail(
             url,
@@ -79,6 +96,8 @@ class AdapterPdfSearch : RecyclerView.Adapter<AdapterPdfSearch.HolderPdfSearch>,
         val progressBar = binding.progressBar
         val title = binding.titleTv
         val author = binding.authorTv
+        val category = binding.categoryTV
+        val ratingBar = binding.ratingBar
     }
 
     override fun getFilter(): Filter {

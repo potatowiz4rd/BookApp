@@ -19,6 +19,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AdapterFavouriteBook : RecyclerView.Adapter<AdapterFavouriteBook.HolderFavouriteBook> {
 
@@ -50,6 +52,18 @@ class AdapterFavouriteBook : RecyclerView.Adapter<AdapterFavouriteBook.HolderFav
         val binding = RowFavouriteBinding.bind(holder.itemView)
         val model = bookArrayList[position]
         loadBookDetails(model, binding)
+
+        val ratingBar = holder.rating
+
+// Generate a random float between 0 and 5
+
+// Generate a random float between 0 and 5
+        val randomRating: Float = Random().nextFloat() * 5
+
+// Set the RatingBar rating to the random value
+
+// Set the RatingBar rating to the random value
+        ratingBar.rating = randomRating
 
         holder.itemView.setOnClickListener{
             val intent = Intent(context, BookDetailActivity::class.java)

@@ -97,6 +97,9 @@ class SearchBookActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
+        binding.backBtn.setOnClickListener{
+            onBackPressed()
+        }
 
         //setup adapter
         viewPager.adapter = viewPagerAdapter

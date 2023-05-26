@@ -16,6 +16,7 @@ class ModelPdf {
     var viewsCount: Long = 0
     var downloadsCount: Long = 0
     var isFavourite = false
+    var numstar: Int = 0
 
     constructor()
 
@@ -33,7 +34,8 @@ class ModelPdf {
         timestamp: Long,
         viewsCount: Long,
         downloadsCount: Long,
-        isFavourite: Boolean
+        isFavourite: Boolean,
+        numstar: Int
     ) {
         this.uid = uid
         this.id = id
@@ -49,6 +51,7 @@ class ModelPdf {
         this.viewsCount = viewsCount
         this.downloadsCount = downloadsCount
         this.isFavourite = isFavourite
+        this.numstar = numstar
     }
 
 

@@ -13,6 +13,8 @@ import com.example.bookapp.filter.FilterPdfUser
 import com.example.bookapp.model.ModelPdf
 import com.example.bookapp.MyApplication
 import com.example.bookapp.databinding.RowPdfUserBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AdapterPdfUser : RecyclerView.Adapter<AdapterPdfUser.HolderPdfUser>, Filterable {
 
